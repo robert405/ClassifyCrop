@@ -26,6 +26,13 @@ def removeMean(imgs):
 
     return (imgs - mean)
 
+def centerReduce(imgs):
+
+    imgs = imgs - 128
+    imgs = imgs / 128
+
+    return imgs
+
 def gray(img):
 
     a = np.mean(img, axis=2, dtype=int)
@@ -123,7 +130,7 @@ def getData(goodFiles, badFiles, dataAug, doBlur):
 
     label = np.concatenate((goodLabel, badLabel), axis=0)
     data = data + badData
-    data = removeMean(np.array(data))
+    data = centerReduce(np.array(data))
 
     shuf = np.arange(len(data))
     np.random.shuffle(shuf)

@@ -218,7 +218,7 @@ for i in range(0, iteration, 1):
         print("accuracy %g" % (train_accuracy))
         print("---------------------------------------------")
 
-    if (i % 8000 == 0 and i != 0):
+    if (i % 10000 == 0 and i != 0):
         lr = lr * 0.1
 
     summary, _ = sess.run([merged, train_step], feed_dict={x: data, y_: label, learning_rate:lr})
