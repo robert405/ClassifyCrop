@@ -198,7 +198,7 @@ shuf = np.arange(iteration)
 np.random.shuffle(shuf)
 
 lr = 1e-4
-iteration = iteration * 2
+iteration = iteration * 3
 print("Going for : " + str(iteration) + " iterations")
 print("---------------------------------------------")
 
@@ -219,7 +219,7 @@ for i in range(0, iteration, 1):
         print("---------------------------------------------")
 
     if (i % 10000 == 0 and i != 0):
-        lr = lr * 0.1
+        lr = lr * 0.5
 
     summary, _ = sess.run([merged, train_step], feed_dict={x: data, y_: label, learning_rate:lr})
     writer.add_summary(summary, i)
